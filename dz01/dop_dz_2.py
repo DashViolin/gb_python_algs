@@ -4,7 +4,7 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        # On LeeCode site: Time Limit Exceededs on submitting:
+        # On LeeCode site: Time Limit Exceeded on submitting:
         # zeros = 0
         # i = 0
         # for item in nums:
@@ -19,10 +19,21 @@ class Solution:
         #         i += 1
 
         # Accepted (More pythonic way :))
-        zeros_count = 0
-        while 0 in nums:
-            nums.remove(0)
-            zeros_count += 1
-        while zeros_count:
-            nums.append(0)
-            zeros_count -= 1
+        # Комментарий: Удаление из массива - линейное. Много удалений и будет уже квадратичное время.
+        # Посмотри оптимальное решение здесь: https://pastebin.com/301eeKMR
+        # zeros_count = 0
+        # while 0 in nums:
+        #     nums.remove(0)
+        #     zeros_count += 1
+        # while zeros_count:
+        #     nums.append(0)
+        #     zeros_count -= 1
+
+        index = 0
+        for num in nums:
+            if num != 0:
+                nums[index] = num
+                index += 1
+        while index < len(nums):
+            nums[index] = 0
+            index += 1
