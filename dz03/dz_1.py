@@ -1,14 +1,19 @@
 import unittest
+from math import floor
 from collections import defaultdict
 
 
 # 1. В диапазоне натуральных чисел от 2 до 99 определить, сколько из них кратны каждому из чисел в диапазоне от 2 до 9.
 def multiples():
-    stats = defaultdict(int)
-    for x in range(2, 100):
-        for m in range(2, 10):
-            if not x % m:
-                stats[m] += 1
+    # stats = defaultdict(int)
+    # for x in range(2, 100):
+    #     for m in range(2, 10):
+    #         if not x % m:
+    #             stats[m] += 1
+    # return stats
+    stats = {}
+    for x in range(2, 10):
+        stats[x] = floor(99 / x)
     return stats
 
 
@@ -24,4 +29,4 @@ class Solution(unittest.TestCase):
             8: 12,
             9: 11,
         }
-        self.assertEqual(multiples(), answer)
+        self.assertEqual(answer, multiples())
