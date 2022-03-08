@@ -4,11 +4,15 @@ import unittest
 # Найти сумму n элементов следующего ряда чисел: 1 -0.5 0.25 -0.125 ...Количество элементов (n) вводится с клавиатуры.
 
 def seq_sum(n):
-    result, seq_element = 0, 1
-    for _ in range(n):
-        result += seq_element
-        seq_element /= -2
-    return result
+    # result, seq_element = 0, 1
+    # for _ in range(n):
+    #     result += seq_element
+    #     seq_element /= -2
+    # return result
+    if n > 0:
+        q = -0.5
+        return (q ** n - 1) / (q - 1)
+    return 0
 
 
 class TestProblem(unittest.TestCase):

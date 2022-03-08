@@ -8,6 +8,8 @@ class Solution:
         #     return False
         # return self.isPowerOfTwo(n / 2)
 
-        if n >= 0 and bin(n).count('1') == 1:
-            return True
-        return False
+        # if n >= 0 and bin(n).count('1') == 1:
+        #     return True
+        # return False
+
+        return (n & (n - 1) == 0) and n != 0
