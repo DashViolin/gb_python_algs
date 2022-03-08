@@ -22,12 +22,10 @@ class Solution:
         #     node = node.next
         # return node
 
-        length = 0
-        tmp_nodes = []
+        tmp_nodes = [head]
         node = head
         while node.next:
-            length += 1
-            tmp_nodes.append(node)
             node = node.next
-        middle = round(length / 2 + 0.1)
+            tmp_nodes.append(node)
+        middle = len(tmp_nodes) // 2
         return tmp_nodes[middle]
